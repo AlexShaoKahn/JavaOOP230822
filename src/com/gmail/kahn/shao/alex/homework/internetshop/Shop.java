@@ -25,6 +25,10 @@ public class Shop {
         products.addProduct(product);
     }
 
+    public void removeProduct(int id) throws Throwable {
+        products.removeProduct(id);
+    }
+
     @Override
     public String toString() {
         var result = new StringBuilder();

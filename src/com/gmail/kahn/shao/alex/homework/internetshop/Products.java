@@ -21,9 +21,13 @@ public class Products implements Iterable<Product> {
         return product.getProductId();
     }
 
-    public void removeProduct(int id) {
-        if (products.containsKey(id)) products.remove(id);
-        else System.out.println("Product with ID " + id + " not found!");
+    public void removeProduct(int id) throws Throwable {
+        if (products.containsKey(id)) {
+            Product product = products.get(id);
+            products.remove(id);
+            product.finalize();
+            System.gc();
+        } else System.out.println("Product with ID " + id + " not found!");
     }
 
     public boolean isEmpty() {
