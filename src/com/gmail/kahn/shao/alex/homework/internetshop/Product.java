@@ -1,6 +1,8 @@
 package com.gmail.kahn.shao.alex.homework.internetshop;
 
 
+import java.util.Objects;
+
 abstract class Product implements Cloneable {
     private static int productIdCounter;
     private int productId = productIdCounter++;
@@ -35,22 +37,6 @@ abstract class Product implements Cloneable {
     }
 
     @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Product product = (Product) o;
-        return name.equals(product.name);
-    }
-
-    @Override
-    public int hashCode() {
-        int seed = 71;
-        int result = seed;
-        result = seed * (result + name.hashCode());
-        return result;
-    }
-
-    @Override
     public String toString() {
         var result = new StringBuilder();
         result
@@ -70,5 +56,18 @@ abstract class Product implements Cloneable {
     @Override
     protected void finalize() throws Throwable {
         super.finalize();
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Product product = (Product) o;
+        return product.name.equals(name);
+    }
+
+    @Override
+    public int hashCode() {
+        return name.hashCode();
     }
 }
