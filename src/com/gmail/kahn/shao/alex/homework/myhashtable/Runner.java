@@ -39,7 +39,6 @@ public class Runner {
 
         //MyHashTable
         var hashArray = new MyHashTable<Integer>();
-        System.out.println(hashArray.size());
 
         //Filling HashTable
         array = getRandomIntsArray(5, 20);

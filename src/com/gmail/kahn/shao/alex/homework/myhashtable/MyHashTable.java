@@ -1,21 +1,21 @@
 package com.gmail.kahn.shao.alex.homework.myhashtable;
 
-import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 public class MyHashTable<T> implements MyHashTableMethods<T> {
     private static final int HASH_TABLE_SIZE = 100;
-    private List<T>[] hashArray;
+    private final List<T>[] hashArray;
 
     public MyHashTable() {
-        hashArray = new List[HASH_TABLE_SIZE];
+        hashArray = new List<>[HASH_TABLE_SIZE];
     }
 
     @Override
     public boolean add(T data) {
         if (data == null) throw new NullPointerException("Element can't be NULL");
         int index = data.hashCode() % HASH_TABLE_SIZE;
-        if (hashArray[index] == null) hashArray[index] = new ArrayList<>();
+        if (hashArray[index] == null) hashArray[index] = new LinkedList<>();
         if (hashArray[index].contains(data)) return false;
         hashArray[index].add(data);
         return true;
