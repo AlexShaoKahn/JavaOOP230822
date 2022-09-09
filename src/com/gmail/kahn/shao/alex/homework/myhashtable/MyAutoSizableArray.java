@@ -39,6 +39,16 @@ public class MyAutoSizableArray<T> {
         trim();
     }
 
+    public void remove2(int index) {
+        if (index > size || index < 0)
+            throw new ArrayIndexOutOfBoundsException(index + " is wrong index. Array size is " + size);
+        for (int i = index; i < size-1; i++) {
+            array[i]=array[i+1];
+        }
+        size--;
+        trim();
+    }
+
     private void expand() {
         if (size == array.length) array = Arrays.copyOf(array, array.length + array.length / 4);
     }

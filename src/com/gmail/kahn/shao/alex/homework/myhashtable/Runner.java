@@ -32,7 +32,7 @@ public class Runner {
 
         //Removing element
         System.out.print("Remove element by index: ");
-        autoSizableArray.remove(scanner.nextInt());
+        autoSizableArray.remove2(scanner.nextInt());
         System.out.println("AutoSizableArray: " + autoSizableArray);
 
         System.out.println();

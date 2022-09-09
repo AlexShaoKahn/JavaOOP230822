@@ -8,7 +8,7 @@ public class MyHashTable<T> implements MyHashTableMethods<T> {
     private final List<T>[] hashArray;
 
     public MyHashTable() {
-        hashArray = new List<>[HASH_TABLE_SIZE];
+        hashArray = new List[HASH_TABLE_SIZE];
     }
 
     @Override
