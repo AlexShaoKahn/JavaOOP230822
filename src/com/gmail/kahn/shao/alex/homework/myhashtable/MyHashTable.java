@@ -41,9 +41,10 @@ public class MyHashTable<T> implements MyHashTableMethods<T> {
 
     @Override
     public boolean contains(T data) {
-        for (List<T> e : hashArray) {
-            if (!(e == null) && e.size() > 0 && e.contains(data)) return true;
-        }
+        if (data == null) throw new NullPointerException("Element can't be NULL");
+        int index = data.hashCode() % HASH_TABLE_SIZE;
+        if (hashArray[index] == null) return false;
+        if (hashArray[index].contains(data)) return true;
         return false;
     }
 
