@@ -14,7 +14,7 @@ public class MyHashTable<T> implements MyHashTableMethods<T> {
     @Override
     public boolean add(T data) {
         if (data == null) throw new NullPointerException("Element can't be NULL");
-        int index = data.hashCode() % HASH_TABLE_SIZE;
+        int index = Math.abs(data.hashCode() % HASH_TABLE_SIZE);
         if (hashArray[index] == null) hashArray[index] = new LinkedList<>();
         if (hashArray[index].contains(data)) return false;
         hashArray[index].add(data);
@@ -31,7 +31,7 @@ public class MyHashTable<T> implements MyHashTableMethods<T> {
     @Override
     public boolean remove(T data) {
         if (data == null) throw new NullPointerException("Element can't be NULL");
-        int index = data.hashCode() % HASH_TABLE_SIZE;
+        int index = Math.abs(data.hashCode() % HASH_TABLE_SIZE);
         if (hashArray[index] == null) return false;
         if (!hashArray[index].contains(data)) return false;
         hashArray[index].remove(data);
