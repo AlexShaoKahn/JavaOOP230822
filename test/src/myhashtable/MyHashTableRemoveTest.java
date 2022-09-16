@@ -1,3 +1,5 @@
+package myhashtable;
+
 import com.gmail.kahn.shao.alex.homework.myhashtable.MyHashTable;
 import org.junit.Assert;
 import org.junit.Test;
