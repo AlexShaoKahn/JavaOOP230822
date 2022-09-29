@@ -68,11 +68,7 @@ public class GameField extends JPanel implements ActionListener {
             g.drawImage(food.getImage(), food.getX(), food.getY(), this);
 
             for (int i = 0; i < snake.getLength(); i++) {
-                if (i == 0) {
-                    g.drawImage(snake.getHead(), X_COORDS[i], Y_COORDS[i], this);
-                } else {
-                    g.drawImage(snake.getBody(), X_COORDS[i], Y_COORDS[i], this);
-                }
+                g.drawImage(i==0?snake.getHead():snake.getBody(), X_COORDS[i], Y_COORDS[i], this);
             }
 
             Toolkit.getDefaultToolkit().sync();
